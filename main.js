@@ -21,7 +21,7 @@ client.on('end', function() {
 
 http.createServer(function (request, response) {
 	 
-    //console.log('request starting...');
+    if(request.headers['content-length'] > 0)console.log('content-length: '+request.headers['content-length']);
     
     response.writeHead(200, {'Content-Type': 'text/plain'});
     var data = dataBuffer.shift();
